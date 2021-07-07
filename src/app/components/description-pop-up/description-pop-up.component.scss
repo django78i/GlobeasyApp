@@ -1,0 +1,135 @@
+* {
+    margin: 0;
+}
+.banniere {
+    height: 200px;
+    width: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+.btBar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.cercle {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.droite {
+    display: flex;
+    gap: 5px;
+}
+
+.contenu {
+    display: flex;
+    flex-direction: column;
+}
+
+.infoBar {
+    width: 95%;
+    border-radius: 15px;
+    box-shadow: 0px 15px 25px 5px rgba(3, 3, 3, 0.08);
+    position: relative;
+    top: -15px;
+    background: white;
+    padding: 15px 12px;
+}
+
+ion-slides {
+    height: 100px !important;
+}
+
+ion-slide {
+    border-radius: 10px;
+}
+
+.photoList {
+    border-top: 1px solid #d2d2d2;
+    border-bottom: 1px solid #d2d2d2;
+    padding: 12px 0px 12px 12px;
+}
+
+.imageSlide {
+    background-position: center !important;
+    background-size: cover !important;
+}
+
+agm-map {
+    height: 214px;
+    position: relative;
+    // flex: 1;
+    margin: auto;
+}
+
+.partner {
+    padding: 12px 12px 12px 12px;
+}
+
+.profilPhoto-block {
+    flex-direction: row;
+    gap: 10px;
+}
+
+.partnerBadge {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px;
+    border-radius: 20px;
+    background: linear-gradient(192.04deg, #db9a6e 6.05%, #bf601f 100%);
+}
+
+::ng-deep .agm-map-container-inner {
+    border-radius: 20px !important;
+}
+
+.map {
+    width: 100%;
+    padding: 15px;
+}
+
+.titre {
+    font-family: "Ubuntu", sans-serif !important;
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+mat-chip {
+    background-color: white !important;
+    padding: 5px 19px !important;
+    // border: 1px solid black !important;
+}
+
+.sousTitre {
+    font-family: "Ubuntu", sans-serif !important;
+    font-size: 12px;
+    &::before {
+        content: url("../../../assets/icon/mapSlideloc.svg");
+        position: relative;
+        margin-right: 5px;
+    }
+    &::after {
+        content: "";
+        position: absolute;
+        height: 2px;
+        width: 30px;
+        background: #e4e4e4;
+        bottom: 6px;
+        left: 15px;
+    }
+}
+
+.titreStep {
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 4px;
+    margin-bottom: 10px;
+}

@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+}
+
+.banniere {
+    display: flex;
+    height: 95px !important;
+}
+
+.droite {
+    width: 85px;
+    height: 45px;
+    border-radius: 30px;
+    background: white;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    color: #dadada;
+    align-self: flex-end;
+}
+
+.gauche {
+    display: flex;
+    align-items: flex-end;
+}
+
+.clickIcon {
+    color: red;
+}
+
+.content {
+    padding: 32px;
+}
+
+.cercle {
+    top: 19px;
+    position: relative;
+    left: 10px;
+    height: 45px;
+    z-index: 2000;
+    width: 45px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 10px 20px rgb(0 0 0 / 15%);
+}
+
+.bouton {
+    width: 173px;
+    height: 60px;
+    border-radius: 100px;
+    margin-top: 5px;
+    color: white;
+    align-items: center;
+    font-size: 18px;
+    justify-content: space-evenly;
+    display: flex;
+    color: white;
+    box-shadow: 0px 15px 25px 5px rgba(0, 0, 0, 0.08);
+    background: linear-gradient(180deg, #3ee38a 0%, #00d3a1 100%);
+}
+
+.contenu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+mat-chip-list {
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 20px;
+    width: 100%;
+    padding: 0 12px;
+}
+
+mat-chip {
+    background: white !important;
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.104212);
+    display: flex;
+    gap: 10px;
+    border-radius: 30px;
+}

@@ -1,0 +1,40 @@
+.banniere {
+  display: flex;
+  justify-content: space-between;
+  padding: 52px 20px;
+}
+
+.droite {
+  width: 85px;
+  height: 45px;
+  border-radius: 30px;
+  background: white;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: #dadada;
+  align-self: flex-end;
+}
+
+.gauche {
+  display: flex;
+  align-items: flex-end;
+}
+
+.clickIcon {
+  color: red;
+}
+
+.content {
+  height: calc(100% - 156px);
+}
+
+.customisze {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 45px;
+  width: 25px;
+  border-radius: 20px;
+  background: white;
+}

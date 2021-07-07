@@ -1,0 +1,82 @@
+* {
+    margin: 0;
+}
+
+.top {
+    height: 100px;
+    width: 100%;
+    background: linear-gradient(192.04deg, #25cae5 6.05%, #4c71e5 65.21%, #7b06e5 100%);
+}
+
+.slideContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    border-radius: 20px;
+    padding-bottom: 26px;
+}
+
+.text {
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px;
+    text-align: left;
+    gap: 25px;
+}
+
+.text h2::after{
+    content: "";
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background: #E7E7E7;
+    top: 58px;
+    left: 20px;
+}
+
+.svgFond {
+    flex: 1;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+ion-slide{
+    height: 450px;
+}
+
+ion-slides{
+    border-radius: 20px;
+}
+
+.slideDisplay{
+    position: relative;
+    top: -20px;
+    border-top-right-radius: 20px;
+    border-top-left-radius: 20px;
+    background-color: white;
+    padding: 11px;
+}
+
+.buttonDiv{
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    position: relative;
+    top: -20px;
+    justify-content: center;
+    padding: 0 30px 0px 30px;
+    z-index: 100;
+}
+
+.button-native .button-inner{
+    justify-content: space-around !important;
+}
+
+ion-button{
+    padding: none !important;
+    display: flex;
+    justify-content: space-around;
+}

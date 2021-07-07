@@ -1,0 +1,43 @@
+.slideContent {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-radius: 30px;
+    color: black;
+    background: white;
+    padding: 5px 0px 0px 15px;
+    position: relative;
+    top: -60px;
+    align-items: center;
+}
+
+.sec {
+    height: 105px;
+    // background: url("https://media.routard.com/image/96/5/marina-dubai.1563965.c1000x300.jpg");
+    background: linear-gradient(192.04deg, #25cae5 6.05%, #4c71e5 100%);
+}
+
+ion-list {
+    width: 100%;
+}
+
+h2 {
+    font-weight: 700;
+    font-size: 15px;
+}
+
+.flex_box {
+    display: flex;
+    justify-content: space-between;
+}
+ion-note {
+    font-size: 13px;
+}
+
+.text-icon {
+    font-size: 22px;
+    margin-bottom: -6px;
+}
+p {
+    color: grey;
+}

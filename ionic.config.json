@@ -1,0 +1,8 @@
+{
+  "name": "globeasy_V2",
+  "integrations": {
+    "capacitor": {},
+    "cordova": {}
+  },
+  "type": "angular"
+}

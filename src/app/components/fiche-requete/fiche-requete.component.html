@@ -1,0 +1,35 @@
+<section>
+	<div class="requeteFiche">
+		<div class="content">
+			<div style="display: flex;justify-content: space-between;">
+				<div class="contentText">
+					<ion-avatar slot="start">
+						<img src="../../../assets/images/fogg-918.png">
+					</ion-avatar>
+					{{requete.createur}}
+				</div>
+				<ion-chip *ngFor="let tag of requete.tags">
+					<ion-avatar>
+						<svg width="15" height="20" viewBox="0 0 15 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M15 7.49619C15 3.35468 11.6429 0 7.50153 0C3.35707 0 0 3.35468 0 7.49619C0 9.56999 0.842319 11.4456 2.20651 12.8027C5.63683 16.2306 6.84232 18.5758 7.26958 19.8079C7.27569 19.8323 7.28179 19.8536 7.29095 19.8719C7.33367 19.9482 7.40997 20 7.50153 20C7.59308 20 7.66938 19.9482 7.71211 19.8719C7.71821 19.8506 7.72737 19.8292 7.73652 19.8079C8.16378 18.5758 9.36928 16.2306 12.7996 12.8027C14.1577 11.4456 15 9.56999 15 7.49619ZM7.50153 10.6313C5.76806 10.6313 4.36419 9.22842 4.36419 7.49619C4.36419 5.76395 5.76806 4.36109 7.50153 4.36109C9.23499 4.36109 10.6389 5.76395 10.6389 7.49619C10.6389 9.22537 9.23194 10.6313 7.50153 10.6313Z"
+								fill="#DADADA" />
+						</svg>
+					</ion-avatar>
+					<ion-label>{{tag}}</ion-label>
+				</ion-chip>
+			</div>
+			<p style="font-size: 14px">{{requete.detail}}</p>
+		</div>
+		<div class="bottom">
+			<button (click)="pop()" style="color: #C9C9C9;background-color: transparent;">
+				Ignorer
+			</button>
+
+			<button class="bouton back" (click)="modal(requete)">
+				Répondre
+				<img src="../../assets/icon/fleche.svg" alt="">
+			</button>
+		</div>
+	</div>
+</section>

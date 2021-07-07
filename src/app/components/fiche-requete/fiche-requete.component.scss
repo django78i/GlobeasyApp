@@ -1,0 +1,65 @@
+.requeteFiche {
+    max-height: 350px;
+    width: 100%;
+    background-color: white;
+    color: black;
+    margin: auto;
+    transition: 0.5s ease-in;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.bottom {
+    padding: 10px;
+    border-top: 2px solid #f1f1f1;
+    display: flex;
+    justify-content: space-around;
+}
+
+.back {
+    background: linear-gradient(180deg, #3ee38a 0%, #00d3a1 100%);
+}
+
+
+.bouton {
+    width: 205px;
+    height: 50px;
+    border-radius: 100px;
+    margin-top: 5px;
+    color: white;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    box-shadow: 0px 15px 25px 5px rgba(0, 0, 0, 0.08);
+}
+
+ion-chip {
+    padding: 5px 10px;
+    background: white;
+    border: 2px solid #e9e9e9;
+}
+
+ion-avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+}
+
+::ng-host ion-item {
+    border-style: none !important;
+    background-color: unset;
+}
+
+
+.contentText{
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.content{
+    padding: 10px;
+    top: 0 !important;
+}

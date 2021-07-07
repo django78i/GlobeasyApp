@@ -1,0 +1,27 @@
+<ion-content [fullscreen]="true">
+	<div class="banniere">
+		<div class="gauche">
+			<div *ngIf="user | async as us" class="customisze" (click)="openEdit(us)">
+				<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd"
+						d="M1.15363 13.8466L1.73591 11.6726L3.32772 13.2643L1.15363 13.8466ZM14.2569 0.743638C13.2651 -0.247879 11.6575 -0.247879 10.6654 0.743638C10.6651 0.744761 10.664 0.745604 10.6632 0.746727L1.31373 10.0962L1.31429 10.097L0 15.001L4.90548 13.6867L14.2569 4.33585C15.249 3.34349 15.249 1.73572 14.2569 0.743638Z"
+						fill="#4A4A4A" />
+				</svg>
+			</div>
+		</div>
+		<div class="droite">
+			<div class="navigation">
+				<ion-icon name="image-outline" class="icon" routerLink="/tabs/tab2/voyage-display"
+					routerLinkActive="clickIcon"></ion-icon>
+				<svg width="2" height="31" viewBox="0 0 2 35" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<line x1="1" y1="4.37114e-08" x2="-1" y2="35" stroke="#DADADA" stroke-width="2" />
+				</svg>
+				<ion-icon name="map-outline" class="icon" routerLink="/tabs/tab2/voyage-map"
+					routerLinkActive="clickIcon"></ion-icon>
+			</div>
+		</div>
+	</div>
+	<div class="content">
+		<router-outlet></router-outlet>
+	</div>
+</ion-content>

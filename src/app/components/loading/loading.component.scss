@@ -1,0 +1,30 @@
+.content {
+    height: 100%;
+    width: 100%;
+    background-image: url("../../../assets/images/globe.svg");
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cercleContent{
+    background : #D1F4F8;
+    height: 180px;
+    width: 180px;
+    border-radius: 50%;
+    border: 7px solid white;
+}
+
+.cercle {
+    height: 100%;
+    width: 100%;
+    border-radius: 50%;
+    background-image: url("../../../assets/images/mascotte.svg");
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    bottom: -10px;
+}

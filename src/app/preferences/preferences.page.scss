@@ -1,0 +1,154 @@
+* {
+    margin: 0;
+}
+
+.formDiv {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    align-items: center;
+}
+
+.top {
+    height: 75px;
+    width: 100%;
+    background: linear-gradient(192.04deg, #25cae5 6.05%, #4c71e5 65.21%, #7b06e5 100%);
+}
+
+ion-select {
+    width: 100%;
+    padding: 10px 5px;
+}
+
+.bouton {
+    width: 173px;
+    height: 60px;
+    border-radius: 100px;
+    margin-top: 5px;
+    color: white;
+    align-items: center;
+    justify-content: space-evenly;
+    display: flex;
+    background: white;
+    color: black;
+    box-shadow: 0px 15px 25px 5px rgba(0, 0, 0, 0.08);
+}
+
+.stepNext {
+    background: linear-gradient(180deg, #3ee38a 0%, #00d3a1 100%);
+    color: white;
+}
+
+::ng-deep .mat-horizontal-stepper-header-container {
+    display: none !important;
+}
+
+::ng-deep .mat-horizontal-content-container,
+::ng-deep .mat-horizontal-stepper-content {
+    height: 100%;
+}
+
+::ng-deep .mat-horizontal-content-container {
+    padding: 15px 0px 0px 0px !important;
+}
+
+.content {
+    height: 100%;
+}
+
+ion-slides {
+    height: 100%;
+}
+
+.slideContent {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    padding: 10px 10px 2px;
+    gap: 30px;
+    align-items: center;
+}
+.svgFond {
+    flex: 2;
+    background-position: center;
+    background-size: 85%;
+    background-repeat: no-repeat;
+    background-color: #d1f4f8;
+    border-radius: 20px;
+    position: relative;
+    width: 100%;
+}
+
+.example-headers-align .mat-expansion-panel-header-title,
+.example-headers-align .mat-expansion-panel-header-description {
+    flex-basis: 0;
+}
+
+.example-headers-align .mat-expansion-panel-header-description {
+    justify-content: space-between;
+    align-items: center;
+}
+
+.example-headers-align .mat-form-field + .mat-form-field {
+    margin-left: 8px;
+}
+
+.mascotte {
+    position: absolute;
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #d1f4f8;
+    border: 2px solid white;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    top: -20px;
+    left: -5px;
+}
+
+.mascotteForm {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    background: #d1f4f8;
+    border: 2px solid white;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: relative;
+}
+.slideText {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0px;
+}
+
+.text {
+    text-align: left;
+    padding: 0 20px;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+h2 {
+    position: relative;
+}
+
+.text h2::after {
+    content: "";
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background: #e7e7e7;
+    bottom: -11px;
+    left: 0px;
+}
+
+.buttonVoyage {
+    position: relative;
+    top: -49px;
+}

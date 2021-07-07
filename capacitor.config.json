@@ -1,0 +1,22 @@
+{
+	"appId": "com.globeasy.caplogin",
+	"appName": "globeasy_V2",
+	"bundledWebRuntime": false,
+	"npmClient": "npm",
+	"webDir": "www",
+	"linuxAndroidStudioPath": "/home/diakite/Documents/androidStudio/android-studio/bin/studio.sh",
+	"plugins": {
+		"SplashScreen": {
+			"launchShowDuration": 0
+		},
+		"GoogleAuth": {
+			"scopes": [
+				"profile",
+				"email"
+			],
+			"serverClientId": "84932470385-pd9pgtetadfar56b667ggfprofeslf4b.apps.googleusercontent.com",
+			"forceCodeForRefreshToken": true
+		}
+	},
+	"cordova": {}
+}

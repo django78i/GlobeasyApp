@@ -1,0 +1,58 @@
+*{
+  margin: 0;
+}
+agm-map {
+  height: 100%;
+  position: relative;
+}
+
+ion-slides {
+  height: 140px;
+}
+
+ion-slide {
+  height: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: flex-end;
+  padding-left: 13px;
+  background: white;
+  padding: 10px;
+  gap: 10px;
+}
+
+.photoSlide {
+  flex: 2;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
+  width: 40%;
+  border-radius: 10px;
+}
+
+.textZone {
+  // font-size: 12px;
+  position: relative;
+  margin-bottom: 18px;
+}
+
+.textZone p::before {
+  content: url("../../../assets/icon/mapSlideloc.svg");
+  position: relative;
+  margin-right: 5px;
+}
+
+.stars{
+  display: flex;
+}
+
+.textZone p::after{
+  content: '';
+  position: absolute;
+  height: 2px;
+  width: 30px;
+  background: #E4E4E4;
+  bottom: -10px;
+  left: 0px;
+}

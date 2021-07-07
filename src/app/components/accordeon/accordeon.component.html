@@ -1,0 +1,102 @@
+<mat-accordion class="example-headers-align">
+	<mat-expansion-panel [expanded]="step === i">
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+				<img src="../../assets/icon/pref/voyage.svg" alt="">
+			</mat-panel-title>
+			<mat-panel-description>
+				{{tripTable.nom}}
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+		<ion-slides pager="false" [options]="slideOpts">
+			<ion-slide *ngFor="let g of tripTable.content; let i = index" #voyage (click)="trip(g, i)"
+				style="background-image: url(../../assets/images/temp.svg); height: 100px;background-position: center;background-size: cover;background-repeat: no-repeat;">
+				<p style="color: white;">{{g}}</p>
+			</ion-slide>
+		</ion-slides>
+		<mat-action-row style="display: flex;gap: 10px;">
+			<button mat-button color="warn" (click)="prevStep()">précédent</button>
+			<button mat-button color="primary" (click)="nextStep()">suivant</button>
+		</mat-action-row>
+	</mat-expansion-panel>
+	<mat-expansion-panel [expanded]="step === i">
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+				<img src="../../assets/icon/pref/activity.svg" alt="">
+			</mat-panel-title>
+			<mat-panel-description>
+				{{activityTable.nom}}
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+		<ion-slides pager="false" [options]="slideOpts">
+			<ion-slide *ngFor="let g of activityTable.content; let i = index" #activite (click)="activity(g, i)"
+				style="background-image: url(../../assets/images/temp.svg); height: 100px;background-position: center;background-size: cover;background-repeat: no-repeat;">
+				<p style="color: white;">{{g}}</p>
+			</ion-slide>
+		</ion-slides>
+		<mat-action-row style="display: flex;gap: 10px;">
+			<button mat-button color="warn" (click)="prevStep()">précédent</button>
+			<button mat-button color="primary" (click)="nextStep()">suivant</button>
+		</mat-action-row>
+	</mat-expansion-panel>
+	<mat-expansion-panel [expanded]="step === i">
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+				<img src="../../assets/icon/pref/food.svg" alt="">
+			</mat-panel-title>
+			<mat-panel-description>
+				{{foodTable.nom}}
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+		<ion-slides pager="false" [options]="slideOpts">
+			<ion-slide *ngFor="let g of foodTable.content; let i = index" #gastronomie (click)="gastronomy(g,i)"
+				style="background-image: url(../../assets/images/temp.svg); height: 100px;background-position: center;background-size: cover;background-repeat: no-repeat;">
+				<p style="color: white;">{{g}}</p>
+			</ion-slide>
+		</ion-slides>
+		<mat-action-row style="display: flex;gap: 10px;">
+			<button mat-button color="warn" (click)="prevStep()">précédent</button>
+			<button mat-button color="primary" (click)="nextStep()">suivant</button>
+		</mat-action-row>
+	</mat-expansion-panel>
+	<mat-expansion-panel [expanded]="step === i">
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+				<img src="../../assets/icon/pref/voyage.svg" alt="">
+			</mat-panel-title>
+			<mat-panel-description>
+				{{shoppingTable.nom}}
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+		<ion-slides pager="false" [options]="slideOpts">
+			<ion-slide *ngFor="let g of shoppingTable.content; let i = index" #shopping (click)="shop(g, i)"
+				style="background-image: url(../../assets/images/temp.svg); height: 100px;background-position: center;background-size: cover;background-repeat: no-repeat;">
+				<p style="color: white;">{{g}}</p>
+			</ion-slide>
+		</ion-slides>
+		<mat-action-row style="display: flex;gap: 10px;">
+			<button mat-button color="warn" (click)="prevStep()">précédent</button>
+			<button mat-button color="primary" (click)="nextStep()">suivant</button>
+		</mat-action-row>
+	</mat-expansion-panel>
+	<mat-expansion-panel [expanded]="step === i">
+		<mat-expansion-panel-header>
+			<mat-panel-title>
+				<img src="../../assets/icon/pref/voyage.svg" alt="">
+			</mat-panel-title>
+			<mat-panel-description>
+				{{cultureTable.nom}}
+			</mat-panel-description>
+		</mat-expansion-panel-header>
+		<ion-slides pager="false" [options]="slideOpts">
+			<ion-slide *ngFor="let g of cultureTable.content; let i = index" #culture (click)="cultures(g, i)"
+				style="background-image: url(../../assets/images/temp.svg); height: 100px;background-position: center;background-size: cover;background-repeat: no-repeat;">
+				<p style="color: white;">{{g}}</p>
+			</ion-slide>
+		</ion-slides>
+		<mat-action-row style="display: flex;gap: 10px;">
+			<button mat-button color="warn" (click)="prevStep()">précédent</button>
+			<button mat-button color="primary" (click)="nextStep()">suivant</button>
+		</mat-action-row>
+	</mat-expansion-panel>
+</mat-accordion>

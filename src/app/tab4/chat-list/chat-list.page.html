@@ -1,0 +1,28 @@
+<ion-content>
+	<div class="sec">
+	</div>
+	<div class="slideContent">
+		<h2>Discussions</h2>
+		<ion-buttons slot="end">
+			<ion-button>
+				<ion-icon slot="icon-only" name="create"></ion-icon>
+			</ion-button>
+		</ion-buttons>
+		<ion-searchbar (ionChange)="change($event)"></ion-searchbar>
+		<ion-list>
+			<ion-item *ngFor="let room of rooms" (click)="navigate(room)">
+				<ion-avatar slot="start" style="border-bottom: 1px solid #F1F1F1;">
+					<img src="../../../assets/images/fogg-918.png">
+				</ion-avatar>
+				<ion-label>
+					<div class="flex_box">
+						<h3>{{room.name}}</h3>
+						<ion-note slot="end">Hier à 12:54</ion-note>
+					</div>
+					{{room.lastMsg}}
+					<ion-badge color="success" slot="end">1</ion-badge>
+				</ion-label>
+			</ion-item>
+		</ion-list>
+	</div>
+</ion-content>

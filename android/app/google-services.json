@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "84932470385",
+    "project_id": "globeasyv2",
+    "storage_bucket": "globeasyv2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:84932470385:android:be96fe31bec101c2ce9dd0",
+        "android_client_info": {
+          "package_name": "com.globeasy.caplogin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "84932470385-vuv3dev19mj2qfb9okl88coav9i3a7u7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.globeasy.caplogin",
+            "certificate_hash": "bf1813cf5bf65830535c2241a743a0e7c7f4fc44"
+          }
+        },
+        {
+          "client_id": "84932470385-pd9pgtetadfar56b667ggfprofeslf4b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyClqqi-xAeVDv77_0Chad97JAYCdbPjPvw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "84932470385-pd9pgtetadfar56b667ggfprofeslf4b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

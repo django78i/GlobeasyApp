@@ -1,0 +1,25 @@
+<ion-content>
+	<div class="top"></div>
+	<div class="slideDisplay">
+		<ion-slides pager="false" [options]="slideOpts">
+			<ion-slide *ngFor="let g of contenuSlide">
+				<div class="slideContent" [style.background-Image]="g.fond">
+					<div class="text">
+						<h2> {{g.titre}}</h2>
+						<p>{{g.contenu}}</p>
+					</div>
+					<div class="svgFond" [ngStyle]="{'background-image': 'url(' + g.image + ')'}"></div>
+				</div>
+			</ion-slide>
+		</ion-slides>
+		<div class="buttonDiv">
+			<ion-button shape="round">S'inscrire</ion-button>
+			<ion-button shape="round" (click)="login()">
+				<ion-icon name="logo-google" slot="start"></ion-icon>
+				Se connecter avec Google
+				<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+			</ion-button>
+		</div>
+	</div>
+
+</ion-content>

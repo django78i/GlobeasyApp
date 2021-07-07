@@ -1,0 +1,29 @@
+<ion-header>
+	<ion-toolbar>
+		<ion-buttons slot="start">
+			<div class="cercle" (click)="dismiss()">
+				<svg width="9" height="13" viewBox="0 0 9 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path fill-rule="evenodd" clip-rule="evenodd"
+						d="M8.22231 10.5131L5.62194 7.4805C5.13836 6.91665 5.13836 6.08393 5.62194 5.5198L8.22259 2.48668C8.72589 1.8995 8.69228 1.02373 8.14565 0.476821L8.10232 0.433491C7.55541 -0.113416 6.67936 -0.147025 6.09218 0.356552L2.07885 3.7977L0.441462 5.43481C-0.147108 6.02283 -0.147108 6.97665 0.441185 7.56494L2.07885 9.20261L6.09218 12.6435C6.67936 13.1471 7.55541 13.1134 8.10204 12.5663L8.14565 12.5229C8.69228 11.976 8.72561 11.1003 8.22231 10.5131Z"
+						fill="#4A4A4A" />
+				</svg>
+			</div>
+		</ion-buttons>
+		<ion-title>Réponses</ion-title>
+	</ion-toolbar>
+</ion-header>
+<ion-content>
+	<div class="detailReq">
+		<div style="background: #F1F1F1;color: black;border-radius: 20px;padding: 10px;display: flex;flex-direction: column;"
+			slot="start">
+			<div class="profilInfo">
+				<ion-avatar>
+					<img src="../../../assets/images/fogg-918.png">
+				</ion-avatar>
+				<p>{{requete.createur}}</p>
+			</div>
+			<p>{{requete.detail}}</p>
+			<ion-note style="color: white !important;">petite note</ion-note>
+		</div>
+	</div>
+</ion-content>

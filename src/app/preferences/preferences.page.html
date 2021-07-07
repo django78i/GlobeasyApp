@@ -1,0 +1,103 @@
+<ion-content>
+	<div class="top"></div>
+	<div class="content">
+		<mat-horizontal-stepper linear #stepper style="height: 100%;">
+			<mat-step [stepControl]="firstFormGroup" [editable]="isEditable" style="height: 100% !important;">
+				<ng-template matStepLabel>Fill out your name</ng-template>
+				<div class="slideContent">
+					<ion-button shape="round" (click)="login()" *ngIf="!(user|async) ">
+						<ion-icon name="logo-google" slot="start"  ></ion-icon>
+						Se connecter avec Google
+						<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+					</ion-button>
+					<!-- <p *ngIf="this.uService.messageSub | async as messageSub ">{{messageSub}}</p> -->
+					<div class="text">
+						<h2> Bienvenue</h2>
+						<p *ngIf="user|async as us"> {{us.displayName}}</p>
+						<p>Bonjour ! Bienvenue sur , l’application qui va révolutionner vos voyages. Notre
+							service
+							facilitera la préparation de vos aventures et va vous permettre d’échanger avec des millions
+							de voyageurs
+							autour du monde. </p>
+					</div>
+					<div class="svgFond" style="background-image: url(../../assets/images/globPres.svg);">
+						<div class="mascotte" style="background-image: url(../../assets/images/mascotte.svg);"></div>
+					</div>
+					<button class="bouton buttonVoyage" mat-button matStepperNext>
+						Décollage !
+						<svg width="17" height="12" viewBox="0 0 17 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+							<path
+								d="M11.7751 7.13129H13.7023H14.3961C14.4796 7.13129 14.5117 7.13129 14.5117 7.13129C14.5117 7.13129 15.3597 7.01969 16.1905 6.80306C17.0192 6.58643 17 6.00219 17 6.00219C17 6.00219 17.0192 5.41794 16.1905 5.20131C15.3619 4.98468 14.5139 4.87309 14.5139 4.87309C14.5139 4.87309 14.4818 4.87309 14.3983 4.87309H13.7045H11.7773L7.95287 0H6.12847L7.8351 3.31291L8.19698 4.8709H6.39827C6.39827 4.8709 5.2184 4.73961 3.68522 5.27571L2.06424 3.58206H0.830833L1.394 5.78993H0.451819L0 6.00219L0.45396 6.21007H1.39614L0.832975 8.41794H2.06638L3.68736 6.72429C5.22055 7.26039 6.39827 7.1291 6.39827 7.1291H8.19698L7.8351 8.68709L6.12847 12H7.95287L11.7751 7.13129Z"
+								fill="#4A4A4A" />
+						</svg>
+					</button>
+
+				</div>
+			</mat-step>
+			<mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+				<ng-template matStepLabel>Fill out your address</ng-template>
+				<app-mascotte [message]="message[0]"></app-mascotte>
+				<app-accordeon (preferences)="preferencesAction($event)"></app-accordeon>
+				<div style="margin-top: 10px;display: flex;justify-content: center;">
+					<button mat-button class="bouton stepNext" matStepperNext>
+						SUIVANT
+						<img src="../../assets/icon/fleche.svg" alt="">
+					</button>
+					<button mat-button (click)="sendTags(us)" *ngIf="user|async as us">envoyer</button>
+				</div>
+			</mat-step>
+			<mat-step>
+				<ng-template matStepLabel>Done</ng-template>
+				<app-mascotte [message]="message[1]"></app-mascotte>
+				<div class="formDiv">
+					<app-visit-form (countryEvent)="addItem($event)" (removed)="deleteItem($event)"></app-visit-form>
+					<div>
+						<button mat-button class="bouton stepNext" matStepperNext>
+							SUIVANT
+							<img src="../../assets/icon/fleche.svg" alt="">
+						</button>
+						<button mat-button (click)="send(us)"  *ngIf="user|async as us">envoyer</button>
+					</div>
+				</div>
+			</mat-step>
+			<mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+				<app-mascotte [message]="message[2]"></app-mascotte>
+				<div
+					style="display: flex; justify-content: center; flex-direction: column;align-items: center; gap: 20px; margin-top: 30px;">
+					<ion-item style="width: 60%;">
+						<!-- <ion-label>Préférence</ion-label> -->
+						<ion-select placeholder="Choisissez un pays">
+							<ion-select-option [value]="f.nom" *ngFor="let f of paySelect"
+								style="display: flex; gap: 30px;">
+								{{f.nom}}
+							</ion-select-option>
+						</ion-select>
+					</ion-item>
+					<button mat-button class="bouton stepNext" matStepperNext>
+						SUIVANT
+						<img src="../../assets/icon/fleche.svg" alt="">
+					</button>
+					<button mat-button (click)="stepper.reset()">Reset</button>
+				</div>
+
+			</mat-step>
+			<mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+				<app-mascotte [message]="message[3]"></app-mascotte>
+				<div
+					style="display: flex; justify-content: center; flex-direction: column;align-items: center; gap: 20px; margin-top: 30px;">
+					<ion-item style="width: 60%;">
+						<ion-label position="floating">Choisissez une date</ion-label>
+						<ion-datetime displayFormat="MM/DD/YYYY" min="1994-03-14" max="2012-12-09"></ion-datetime>
+					</ion-item>
+
+					<button matStepperNext mat-button class="bouton stepNext" (click)=" presentModal()">
+						SUIVANT
+						<img src="../../assets/icon/fleche.svg" alt="">
+					</button>
+					<button mat-button (click)="stepper.reset()">Reset</button>
+				</div>
+				<p *ngIf="this.uService.messageSub | async as messageSub ">{{messageSub}}</p>
+			</mat-step>
+		</mat-horizontal-stepper>
+	</div>
+</ion-content>

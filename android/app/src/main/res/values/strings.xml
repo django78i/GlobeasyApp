@@ -1,0 +1,8 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">globeasy_V2</string>
+    <string name="title_activity_main">globeasy_V2</string>
+    <string name="package_name">com.globeasy.caplogin</string>
+    <string name="custom_url_scheme">com.globeasy.caplogin</string>
+    <string name="server_client_id">84932470385-pd9pgtetadfar56b667ggfprofeslf4b.apps.googleusercontent.com</string>
+</resources>

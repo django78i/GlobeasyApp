@@ -1,0 +1,104 @@
+.actived {
+	&::after {
+		content: "";
+		height: 30px;
+		width: 30px;
+		background: red;
+		bottom: 52px;
+	}
+}
+
+.tab-button {
+	max-width: 200px;
+}
+
+::ng-deep ion-icon.icon-button {
+	background: #ffffff !important;
+	color: white !important;
+	// border-radius: 50%!important;
+}
+
+:host ::ng-deep .tabs-inner {
+	position: unset !important;
+	contain: size style !important;
+}
+
+.bottom-tab-bar {
+	--background: white;
+	--border: 1px solid white;
+}
+
+ion-tab-button {
+	--background: white;
+	--color: #9b9b9b;
+	--color-selected: black;
+	--ripple-color: white;
+}
+
+.circleTab {
+	width: 60px;
+	/* height: 57px; */
+	justify-content: center;
+	display: flex;
+	position: relative;
+	top: -20px;
+	border-radius: 50%;
+	background: white;
+	z-index: 10000;
+}
+
+.button-center {
+	--background: white !important;
+}
+
+.inner-left-btn {
+	border-radius: 0 50% 0 0; // create the curved style on the left side of the center
+}
+
+.inner-right-btn {
+	border-radius: 50% 0 0 0; // create the curved style on the right side of the center
+}
+
+.inner-center-btn {
+	position: absolute;
+	left: calc(50% - 51px); // position your button in the center
+	bottom: 0px; // position your button slightly above the half bezel
+	font-size: 70px;
+	display: flex;
+	justify-content: center;
+	width: 100px;
+	background: white;
+}
+
+.iconPhoto {
+	height: 45px;
+	width: 45px;
+	padding: 5px;
+	border-radius: 50%;
+	top: 6px;
+	position: relative;
+	background: linear-gradient(192.04deg, #25cae5 6.05%, #4c71e5 65.21%, #7b06e5 100%);
+	box-shadow: 0px 15px 20px rgba(0, 178, 234, 0.195992);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+.activeSocial path:first-child {
+	fill: #4a4a4a;
+}
+
+.activeSocial path:nth-child(5),
+.activeSocial path:nth-child(3),
+.activeSocial path:nth-child(7),
+.activeSocial path:nth-child(6),
+.activeSocial path:nth-child(8),
+.activeSocial path:nth-child(9),
+.activeSocial path:nth-child(10) {
+	fill: #4a4a4a;
+	opacity: 0.5;
+}
+
+.activeSocial path:nth-child(11) {
+	fill: #4a4a4a !important;
+}
