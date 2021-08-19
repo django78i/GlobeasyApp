@@ -2,18 +2,27 @@
 	<div class="top"></div>
 	<div class="content">
 		<mat-horizontal-stepper linear #stepper style="height: 100%;">
-			<mat-step [stepControl]="firstFormGroup" [editable]="isEditable" style="height: 100% !important;">
+			<mat-step [editable]="isEditable" style="height: 100% !important;">
 				<ng-template matStepLabel>Fill out your name</ng-template>
 				<div class="slideContent">
-					<ion-button shape="round" (click)="login()" *ngIf="!(user|async) ">
-						<ion-icon name="logo-google" slot="start"  ></ion-icon>
+					<ion-button shape="round" (click)="login()" *ngIf="!user ">
+						<ion-icon name="logo-google" slot="start"></ion-icon>
 						Se connecter avec Google
+						<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+					</ion-button>
+					<ion-button (click)="logout()">
+						<ion-icon slot="icon-only" name="log-out-outline"></ion-icon>
+					  </ion-button>
+				
+					<ion-button shape="round" (click)="loginMail()" *ngIf="!user ">
+						<ion-icon name="logo-google" slot="start"></ion-icon>
+						Se connecter avec votre email
 						<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
 					</ion-button>
 					<!-- <p *ngIf="this.uService.messageSub | async as messageSub ">{{messageSub}}</p> -->
 					<div class="text">
 						<h2> Bienvenue</h2>
-						<p *ngIf="user|async as us"> {{us.displayName}}</p>
+						<p *ngIf="user"> {{user.displayName}}</p>
 						<p>Bonjour ! Bienvenue sur , l’application qui va révolutionner vos voyages. Notre
 							service
 							facilitera la préparation de vos aventures et va vous permettre d’échanger avec des millions
@@ -34,7 +43,7 @@
 
 				</div>
 			</mat-step>
-			<mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+			<mat-step [editable]="isEditable">
 				<ng-template matStepLabel>Fill out your address</ng-template>
 				<app-mascotte [message]="message[0]"></app-mascotte>
 				<app-accordeon (preferences)="preferencesAction($event)"></app-accordeon>
@@ -43,7 +52,7 @@
 						SUIVANT
 						<img src="../../assets/icon/fleche.svg" alt="">
 					</button>
-					<button mat-button (click)="sendTags(us)" *ngIf="user|async as us">envoyer</button>
+					<button mat-button (click)="sendTags(user)" *ngIf="user">envoyer</button>
 				</div>
 			</mat-step>
 			<mat-step>
@@ -56,11 +65,11 @@
 							SUIVANT
 							<img src="../../assets/icon/fleche.svg" alt="">
 						</button>
-						<button mat-button (click)="send(us)"  *ngIf="user|async as us">envoyer</button>
+						<button mat-button (click)="send(user)" *ngIf="user">envoyer</button>
 					</div>
 				</div>
 			</mat-step>
-			<mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+			<mat-step [editable]="isEditable">
 				<app-mascotte [message]="message[2]"></app-mascotte>
 				<div
 					style="display: flex; justify-content: center; flex-direction: column;align-items: center; gap: 20px; margin-top: 30px;">
@@ -81,7 +90,7 @@
 				</div>
 
 			</mat-step>
-			<mat-step [stepControl]="secondFormGroup" [editable]="isEditable">
+			<mat-step [editable]="isEditable">
 				<app-mascotte [message]="message[3]"></app-mascotte>
 				<div
 					style="display: flex; justify-content: center; flex-direction: column;align-items: center; gap: 20px; margin-top: 30px;">

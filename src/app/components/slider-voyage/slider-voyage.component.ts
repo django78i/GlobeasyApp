@@ -29,7 +29,9 @@ export class SliderVoyageComponent implements OnInit {
 
   constructor() { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    console.log(this.places);
+   }
 
 
   navigate(place) {

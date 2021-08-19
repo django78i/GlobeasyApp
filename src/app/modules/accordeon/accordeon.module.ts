@@ -10,6 +10,8 @@ import { MatChipsModule } from '@angular/material/chips';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LoadingComponent } from 'src/app/components/loading/loading.component';
 import { PreferencesModalComponent } from 'src/app/components/preferences-modal/preferences-modal.component';
+import { PhotoModule } from '../photo.module';
+import { IonicModule } from '@ionic/angular';
 
 
 @NgModule({
@@ -27,7 +29,9 @@ import { PreferencesModalComponent } from 'src/app/components/preferences-modal/
     HttpClientModule,
     MatChipsModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    IonicModule
+    // PhotoModule
   ],
   exports: [
     AccordeonComponent,

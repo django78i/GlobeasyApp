@@ -12,6 +12,14 @@
     <param name="onload" value="true"/>
   </feature>
 
+  <feature name="NativeStorage">
+    <param name="android-package" value="NativeStorage"/>
+  </feature>
+
+  <feature name="Downloader">
+    <param name="android-package" value="hr.integrator.cordova.plugins.downloader.Downloader"/>
+  </feature>
+
   <feature name="Device">
     <param name="android-package" value="org.apache.cordova.device.Device"/>
   </feature>

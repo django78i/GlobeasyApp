@@ -1,14 +1,15 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, OnDestroy } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { Country } from '@angular-material-extensions/select-country';
 import { Angulartics2GoogleAnalytics } from 'angulartics2/ga';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-visit-form',
   templateUrl: './visit-form.component.html',
   styleUrls: ['./visit-form.component.scss'],
 })
-export class VisitFormComponent implements OnInit {
+export class VisitFormComponent implements OnInit, OnDestroy {
   countryFormControl = new FormControl();
   countryFormGroup: FormGroup;
   countries: any[] = [];
@@ -16,7 +17,7 @@ export class VisitFormComponent implements OnInit {
   @Output() countryEvent = new EventEmitter;
   @Output() removed = new EventEmitter;
 
-
+  sub: Subscription;
   constructor(private formBuilder: FormBuilder, angulartics2GoogleAnalytics: Angulartics2GoogleAnalytics,) {
     angulartics2GoogleAnalytics.startTracking();
 
@@ -24,7 +25,7 @@ export class VisitFormComponent implements OnInit {
 
   ngOnInit() {
     this.intiForm();
-    this.countryFormGroup.get('country').valueChanges
+    this.sub = this.countryFormGroup.get('country').valueChanges
       .subscribe((country) => {
         console.log('ici');
         console.log('this.countryFormGroup.get("country").valueChanges', country)
@@ -63,6 +64,10 @@ export class VisitFormComponent implements OnInit {
     }
     console.log(pays);
     return pays;
+  }
+
+  ngOnDestroy() {
+    this.sub.unsubscribe();
   }
 
 

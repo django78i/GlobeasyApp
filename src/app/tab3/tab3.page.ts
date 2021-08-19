@@ -18,4 +18,6 @@ export class Tab3Page {
     this.navCtl.navigateBack('tabs/tab3/pref/voyage-display');
   }
 
+  
+
 }

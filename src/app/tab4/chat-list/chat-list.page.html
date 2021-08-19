@@ -8,21 +8,23 @@
 				<ion-icon slot="icon-only" name="create"></ion-icon>
 			</ion-button>
 		</ion-buttons>
-		<ion-searchbar (ionChange)="change($event)"></ion-searchbar>
+		<ion-searchbar></ion-searchbar>
 		<ion-list>
-			<ion-item *ngFor="let room of rooms" (click)="navigate(room)">
-				<ion-avatar slot="start" style="border-bottom: 1px solid #F1F1F1;">
-					<img src="../../../assets/images/fogg-918.png">
-				</ion-avatar>
-				<ion-label>
-					<div class="flex_box">
-						<h3>{{room.name}}</h3>
-						<ion-note slot="end">Hier à 12:54</ion-note>
-					</div>
-					{{room.lastMsg}}
-					<ion-badge color="success" slot="end">1</ion-badge>
-				</ion-label>
-			</ion-item>
+			<ng-container *ngIf="roomsObs$|async as r">
+				<ion-item *ngFor="let room of r">
+					<ion-avatar style="border-bottom: 1px solid #F1F1F1;margin-right: 5px;">
+						<img src="../../../assets/images/fogg-918.png">
+					</ion-avatar>
+					<ion-label (click)="navigate(room)">
+						<div class="flex_box">
+							<h3>{{room.userConnect.name}}</h3>
+							<ion-note slot="end">{{room.timestamp|timeTrans}}</ion-note>
+						</div>
+						<p slot="start">{{room.lastMsg}}</p>
+						<!-- <ion-badge color="success" slot="end">1</ion-badge> -->
+					</ion-label>
+				</ion-item>
+			</ng-container>
 		</ion-list>
 	</div>
 </ion-content>

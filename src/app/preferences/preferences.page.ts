@@ -1,9 +1,10 @@
 import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
 import { ModalController, NavController } from '@ionic/angular';
-import { Observable } from 'rxjs';
+import { from, Observable, of } from 'rxjs';
 import { tap } from 'rxjs/operators';
 import { LoadingComponent } from '../components/loading/loading.component';
+import { LoginPopUpComponent } from '../components/login-pop-up/login-pop-up.component';
 import { UserServiceService } from '../services/user-service.service';
 @Component({
 	selector: 'app-preferences',
@@ -47,22 +48,31 @@ export class PreferencesPage implements OnInit {
 	]
 
 	items = [];
-
-	user: Observable<any> = new Observable;
-
+	user: any;
 	prefTable: any[] = [];
 
-	constructor(private uService: UserServiceService, private navCtl: NavController, public modalController: ModalController, private auth: AngularFireAuth) {
+	constructor(public uService: UserServiceService,
+		private navCtl: NavController,
+		public modalController: ModalController,
+		private auth: AngularFireAuth) {
 	}
 
 	ngOnInit() {
-		this.auth.onAuthStateChanged(r => {
-			if (r) {
-				console.log(r);
-				this.user = this.uService.getUser(r.uid);
-			}
-		})
+		const dat = from(this.uService.getMobileUserFromStorage());
+		dat.pipe(
+			tap(user => {
+				this.user = JSON.parse(user);
+			})
+		).subscribe();
+		console.log(this.user)
+
 	}
+
+	logout() {
+		console.log('out');
+		this.uService.signout();
+	}
+
 
 	addItem(newItem: string) {
 		console.log(newItem)
@@ -105,5 +115,13 @@ export class PreferencesPage implements OnInit {
 
 	}
 
+
+	async loginMail() {
+		const modal = await this.modalController.create({
+			component: LoginPopUpComponent,
+			cssClass: 'modalDescription'
+		});
+		return await modal.present();
+	}
 
 }

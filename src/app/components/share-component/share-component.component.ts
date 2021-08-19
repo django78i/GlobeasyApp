@@ -37,8 +37,6 @@ export class ShareComponentComponent implements OnInit {
   }
 
   navigate(g) {
-    this.chatService.messages.push({ ...g, userId: '0123456789', type: 'media' });
-    console.log(this.chatService.messages);
     this.dismiss();
   }
 

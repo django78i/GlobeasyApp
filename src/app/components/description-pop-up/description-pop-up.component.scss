@@ -45,6 +45,7 @@
 
 ion-slides {
     height: 100px !important;
+    width: 100%;
 }
 
 ion-slide {
@@ -122,7 +123,7 @@ mat-chip {
         height: 2px;
         width: 30px;
         background: #e4e4e4;
-        bottom: 6px;
+        bottom: 25px;
         left: 15px;
     }
 }

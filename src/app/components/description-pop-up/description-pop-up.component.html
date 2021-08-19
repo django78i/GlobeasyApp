@@ -31,6 +31,9 @@
       <div class="infoBar">
         <h3 class="titre">{{place.nom}}</h3>
         <p class="sousTitre">{{place.adresse}}</p>
+        <div style="display: flex;justify-content: flex-end;">
+          <div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5."></div>
+        </div>
       </div>
     </div>
     <section class="partner">
@@ -60,11 +63,13 @@
     <section class=" photoList">
 
       <p class="titreStep" style="margin-bottom: 10px;">PHOTOS ({{place.photos.length}})</p>
-      <ion-slides pager="false" [options]="slideOpts">
-        <ion-slide *ngFor="let image of place.photos" class="imageSlide" [style.background]="'url('+image+')'"
-          (click)=" presentModal(image)">
-        </ion-slide>
-      </ion-slides>
+      <div style="display: block;">
+        <ion-slides pager="false" [options]="slideOpts">
+          <ion-slide *ngFor="let image of place.photos" class="imageSlide" [style.background]="'url('+image+')'"
+            (click)=" presentModal(image)">
+          </ion-slide>
+        </ion-slides>
+      </div>
     </section>
     <section class="map">
       <p class="titreStep">DESCRIPTION</p>

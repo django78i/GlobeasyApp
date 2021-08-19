@@ -1,0 +1,18 @@
+* {
+    margin: 0;
+}
+.container {
+    background-color: black;
+    height: 100%;
+    overflow-y: auto;
+    color: white;
+}
+
+img {
+    position: relative;
+    z-index: 90000;
+}
+
+.tof {
+    width: 100%;
+}

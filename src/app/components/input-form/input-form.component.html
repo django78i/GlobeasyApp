@@ -1,0 +1,11 @@
+<ion-toolbar color="light" style="border-top: 2px solid #F1F1F1;">
+  <ion-row align-items-center no-padding>
+    <ion-col size="10">
+      <ion-input autosize type="text" [(ngModel)]="messageText" class="textMess">
+      </ion-input>
+    </ion-col>
+    <ion-col size="2">
+      <div class="sendButton" (click)="sendMessage()"></div>
+    </ion-col>
+  </ion-row>
+</ion-toolbar>

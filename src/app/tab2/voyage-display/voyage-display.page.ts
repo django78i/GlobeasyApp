@@ -1,6 +1,6 @@
-import { Component, OnInit, QueryList, ViewChildren } from '@angular/core';
+import { Component, OnDestroy, OnInit, QueryList, ViewChildren } from '@angular/core';
 import { ModalController, NavController } from '@ionic/angular';
-import { Observable } from 'rxjs';
+import { BehaviorSubject, Observable, Subject, Subscription } from 'rxjs';
 import { distinctUntilChanged, map, takeLast, tap } from 'rxjs/operators';
 import { DescriptionPopUpComponent } from 'src/app/components/description-pop-up/description-pop-up.component';
 import { PlacesService } from 'src/app/services/places.service';
@@ -10,7 +10,7 @@ import { PlacesService } from 'src/app/services/places.service';
 	templateUrl: './voyage-display.page.html',
 	styleUrls: ['./voyage-display.page.scss'],
 })
-export class VoyageDisplayPage implements OnInit {
+export class VoyageDisplayPage implements OnInit, OnDestroy {
 
 	places: Observable<any[]>;
 	cultureTab: any[] = [];
@@ -44,6 +44,10 @@ export class VoyageDisplayPage implements OnInit {
 	rating3: number;
 	rating2: number;
 	starRating = 3;
+	selectPlace: Subject<any> = new Subject;
+	palace: any;
+	sub: Subscription;
+
 	constructor(public pls: PlacesService, public navCtl: NavController, public modalController: ModalController) {
 		this.rating3 = 3, 2;
 		this.rating2 = 0;
@@ -58,6 +62,9 @@ export class VoyageDisplayPage implements OnInit {
 			distinctUntilChanged(),
 			tap(r => this.filterPlace(r))
 		);
+		this.sub = this.places.subscribe(
+			r => this.palace = r
+		)
 	}
 
 	navigate(event) {
@@ -113,6 +120,21 @@ export class VoyageDisplayPage implements OnInit {
 		})
 		console.log(this.activiteTab);
 		return places;
+	}
+
+
+	showPlace(event) {
+		console.log(event);
+		event.length ? this.selectPlace.next(event) : this.selectPlace.next(undefined);
+		if (!event.length) {
+			this.getPlaces();
+		}
+	}
+
+
+
+	ngOnDestroy() {
+		this.sub.unsubscribe();
 	}
 
 }

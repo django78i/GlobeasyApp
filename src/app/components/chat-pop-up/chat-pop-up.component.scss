@@ -1,0 +1,61 @@
+.back {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.0655571);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cercle {
+    height: 45px;
+    width: 45px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.textMess {
+    --border-radius: 100px !important;
+    --background: #f1f1f1 !important;
+    border-radius: var(--border-radius) !important;
+    --padding-start: 20px;
+}
+
+ion-item {
+    --background: transparent;
+}
+.talk {
+    margin-bottom: 15px;
+    max-width: 60%;
+    padding: 6px 9px;
+    border-radius: 6px;
+    font-weight: 400;
+    font-size: 15px;
+    box-shadow: 1px 1px 3px #00000029;
+}
+ion-item ion-note {
+    font-size: 10px;
+    margin-left: 8px;
+}
+ion-item ion-note ion-icon {
+    font-size: 20px;
+    margin-bottom: -6px;
+    margin-left: -2px;
+}
+
+.sendTof {
+    width: 34px !important;
+}
+
+.sendButton {
+    height: 100%;
+    width: 100%;
+    background-image: url(../../../assets/icon/send.svg);
+    background-size: 30px 30px;
+    background-position: center;
+    background-repeat: no-repeat;
+}

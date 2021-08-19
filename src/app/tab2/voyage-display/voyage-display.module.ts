@@ -9,6 +9,7 @@ import { VoyageDisplayPageRoutingModule } from './voyage-display-routing.module'
 import { VoyageDisplayPage } from './voyage-display.page';
 import { NgxStarRatingModule } from 'ngx-star-rating'
 import { PhotoModule } from 'src/app/modules/photo.module';
+import { AccordeonModule } from 'src/app/modules/accordeon/accordeon.module';
 
 
 @NgModule({
@@ -18,7 +19,8 @@ import { PhotoModule } from 'src/app/modules/photo.module';
     IonicModule,
     VoyageDisplayPageRoutingModule,
     NgxStarRatingModule,
-    PhotoModule
+    PhotoModule,
+    AccordeonModule
   ],
   declarations: [VoyageDisplayPage]
 })

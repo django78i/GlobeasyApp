@@ -5,7 +5,7 @@
 		</agm-marker>
 
 	</agm-map>
-	<div style="position: absolute;bottom: 10px;width: 100%;">
+	<div style="position: absolute;bottom: 25px;width: 100%;">
 		<ion-slides pager="false" [options]="slideOpts" #slides>
 			<ion-slide *ngFor="let g of places|async" (click)="openDescription(g)">
 				<div [ngStyle]="{'background-image': 'url(' + g.banniere + ')'}" class="photoSlide">
@@ -15,9 +15,10 @@
 						<h3 style="color: black;font-size: 16px;">{{g.nom}}</h3>
 						<p style="font-size: 12px;">{{g.addFormat}}</p>
 					</div>
-					<div class="stars">
+					<div class="Stars" style="--rating: 2.3;" aria-label="Rating of this product is 2.3 out of 5."></div>
+					<!-- <div class="stars">
 						<ngx-star-rating [(ngModel)]="rating3" [id]="'rating3'"></ngx-star-rating>
-					</div>
+					</div> -->
 				</div>
 			</ion-slide>
 		</ion-slides>

@@ -10,9 +10,9 @@ import { PhotoComponent } from '../photo/photo.component';
 export class DescriptionPopUpComponent implements OnInit {
 	place: any;
 	slideOpts = {
-		initialSlide: 0,
-		slidesPerView: 3,
-		spaceBetween: 5,
+		// initialSlide: 0,
+		slidesPerView: 1,
+		// spaceBetween: 5,
 		speed: 200,
 	};
 	latitude: number = 25.276987;

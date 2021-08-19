@@ -4,11 +4,12 @@ import { AngularFireAuth } from '@angular/fire/auth';
 import { AngularFirestore } from '@angular/fire/firestore';
 import firebase from 'firebase/app';
 import { BehaviorSubject, from, Observable, Subject } from 'rxjs';
-import { map, share, switchMap, tap } from 'rxjs/operators';
+import { first, map, share, switchMap, tap } from 'rxjs/operators';
 import '@codetrix-studio/capacitor-google-auth'
 import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import { GooglePlus } from '@ionic-native/google-plus/ngx';
-import { FirebaseAuthentication } from '@ionic-native/firebase-authentication/ngx';
+import { NativeStorage } from '@ionic-native/native-storage/ngx';
+import { Storage } from '@ionic/storage-angular';
 
 GoogleAuth.init();
 
@@ -21,20 +22,60 @@ export class UserServiceService {
 	user: Observable<any>;
 	userSubject: BehaviorSubject<any> = new BehaviorSubject(null);
 	messageSub: BehaviorSubject<any> = new BehaviorSubject(null);
-
+	errorMessage: Subject<string> = new Subject;
+	userStorage: any;
+	private _storage: Storage | null = null;
 
 	constructor(
 		private googlePlus: GooglePlus,
 		private afs: AngularFirestore,
 		public auth: AngularFireAuth,
 		public navCtl: NavController,
-		// private storage: Storage,
-		private platform: Platform,
-		private firebaseAuthentication: FirebaseAuthentication
-	) { }
+		private nativeStorage: NativeStorage,
+		public platform: Platform,
+		private storage: Storage
+	) {
+
+		this.init();
+		this.auth.onAuthStateChanged((user) => {
+			if (user != null) {
+				this.afs.collection('users').doc(user.uid).valueChanges()
+					.pipe(
+						first(),
+						// share(),
+						tap(r => {
+							if (user != null) {
+								console.log('iciGars');
+								// this.getMobileUserFromStorage()
+								this.saveUserStorage(r);
+							} else {
+								console.log("ya rien");
+							}
+						})
+					).subscribe();
+			}
+		})
+
+	}
+
+
+	init() {
+		this.storage.create()
+	}
+
+	deleteUserStorage() {
+		return this.storage.clear().then(() => console.log('finish'));
+	}
+
+
+
+	saveUserStorage(user) {
+		console.log(user);
+		return this.storage.set('user', JSON.stringify(user)).then((u) => console.log(u));
+	}
+
 
 	getUser(user) {
-		console.log(user);
 		this.userSubject.next(user);
 		this.user = this.userSubject
 			.pipe(
@@ -44,6 +85,10 @@ export class UserServiceService {
 			)
 
 		return this.user;
+	}
+
+	getMobileUserFromStorage() {
+		return this.storage.get('user');
 	}
 
 	logUserWithGoogle() {
@@ -59,8 +104,12 @@ export class UserServiceService {
 	}
 
 	signout() {
+		this.deleteUserStorage();
 		this.auth.signOut();
-		this.googlePlus.logout();
+		if (this.platform.is('android')) {
+			console.log('android');
+			this.googlePlus.logout();
+		}
 	}
 
 
@@ -83,9 +132,30 @@ export class UserServiceService {
 	}
 
 
-	isAuthenticated() {
-		return this.authState;
+	logMail(mail, password) {
+		return this.auth.signInWithEmailAndPassword(mail, password);
 	}
+
+	createUserMailPassword(mail, password, pseudo) {
+		return this.auth.createUserWithEmailAndPassword(mail, password)
+			.then((user) => {
+				const newUser = {
+					displayName: pseudo,
+					mail: mail,
+					dateCreation: new Date(),
+					uid: user.user.uid,
+					password: password
+				}
+				this.afs.collection('users').doc(newUser.uid).set(Object.assign({}, newUser));
+			})
+			.catch((error) => {
+				var errorMessage = error.message;
+				this.errorMessage.next(errorMessage);
+				console.log(errorMessage)
+			});
+
+	}
+
 
 	updateUser(user) {
 		console.log(user);

@@ -23,9 +23,7 @@ export class ChatConvPage implements OnInit {
 	ngOnInit() {
 		console.log(history.state.data.room);
 		this.userID = "0123456789"
-		this.messages = this.chatService.messages;
 		this.nom = history.state.data.room.name;
-		// this.messagesSub.next(this.chatService.messages);
 	}
 
 
@@ -34,14 +32,7 @@ export class ChatConvPage implements OnInit {
 		console.log(this.userID);
 		const date = new Date().toISOString();
 		console.log(date);
-		const user = {
-			date: date,
-			text: this.messageText,
-			userId: this.userID,
-			type : 'message'
-		}
-		this.messages.push(user);
-		this.messageText = '';
+		this.messageText = null;
 	}
 
 
@@ -61,9 +52,6 @@ export class ChatConvPage implements OnInit {
 		const modal = await this.modalController.create({
 			component: ShareComponentComponent,
 			cssClass: 'shareModal',
-			// componentProps: {
-			// 	'place': image
-			// }
 		});
 		return await modal.present();
 	}

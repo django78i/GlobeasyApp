@@ -1,0 +1,62 @@
+<ion-header>
+	<div class="cercle" (click)="dismiss()">
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path fill-rule="evenodd" clip-rule="evenodd"
+				d="M17.935 15.9726L15.1437 12.7174C14.7901 12.3049 14.7901 11.6958 15.1439 11.2832L17.9354 8.02738C18.3013 7.60041 18.2771 6.96337 17.8792 6.56544L17.4346 6.12083C17.0368 5.72309 16.3998 5.69883 15.9726 6.06496L12.7172 8.85649C12.3046 9.2103 11.6954 9.2103 11.2828 8.85649L8.02738 6.06496C7.60023 5.69883 6.96318 5.72309 6.56544 6.12083L6.12065 6.56563C5.72291 6.96337 5.69865 7.60041 6.06478 8.02756L8.85576 11.2828C9.20957 11.6954 9.20957 12.3042 8.85576 12.7168L6.06496 15.9723C5.69883 16.3994 5.7231 17.0364 6.12084 17.4342L6.56563 17.879C6.96355 18.2769 7.6006 18.3012 8.02775 17.935L11.2828 15.1439C11.6953 14.7902 12.3044 14.7902 12.7168 15.1439L15.9724 17.9352C16.3998 18.3015 17.0368 18.2769 17.4346 17.8792L17.8792 17.4346C18.2767 17.0366 18.3012 16.3998 17.935 15.9726Z"
+				fill="black" />
+		</svg>
+	</div>
+	<ion-toolbar>
+		<ion-segment (ionChange)="segmentChanged($event)" [value]="seg">
+			<ion-segment-button value="login">
+				<ion-label>Se connecter</ion-label>
+			</ion-segment-button>
+			<ion-segment-button value="register">
+				<ion-label>S'enregister</ion-label>
+			</ion-segment-button>
+		</ion-segment>
+	</ion-toolbar>
+</ion-header>
+<ion-content fullscreen>
+	<div *ngIf="seg == 'login'" class="contenu">
+		<p>
+			se connecter
+		</p>
+		<ion-item>
+			<ion-label position="floating">mail</ion-label>
+			<ion-input [(ngModel)]="mail"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">mot de passe</ion-label>
+			<ion-input type="password" [(ngModel)]="password"></ion-input>
+		</ion-item>
+		<ion-button shape="round" (click)="logUser()">
+			Se connecter
+			<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+		</ion-button>
+
+	</div>
+	<div *ngIf="seg == 'register'" class="contenu">
+		<p>
+			enregistrement
+		</p>
+		<ion-item>
+			<ion-label position="floating">pseudo</ion-label>
+			<ion-input [(ngModel)]="pseudo"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">mail</ion-label>
+			<ion-input [(ngModel)]="mail"></ion-input>
+		</ion-item>
+		<ion-item>
+			<ion-label position="floating">mot de passe</ion-label>
+			<ion-input type="password" [(ngModel)]="password"></ion-input>
+		</ion-item>
+		<p *ngIf="errorMessage|async as err" style="color: red;">{{err}}</p>
+		<ion-button shape="round" (click)="createUser()">
+			Créer un compte
+			<ion-icon name="chevron-forward-outline" slot="end"></ion-icon>
+		</ion-button>
+
+	</div>
+</ion-content>

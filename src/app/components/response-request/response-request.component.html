@@ -26,4 +26,52 @@
 			<ion-note style="color: white !important;">petite note</ion-note>
 		</div>
 	</div>
+	<div class="reponsesRequetes">
+		<ng-container *ngIf="responses|async as respo">
+			<div *ngFor="let rep of respo" style="margin-top: 10px;">
+				<ng-container>
+					<div style="background: #F1F1F1;color: black;border-radius: 20px;padding: 10px;display: flex;flex-direction: column; justify-content: space-between;gap: 17px;"
+						slot="start">
+						<div class="profilInfo">
+							<ion-avatar (click)="presentPopover($event, rep)">
+								<img src="../../../assets/images/fogg-918.png">
+							</ion-avatar>
+							<p>{{rep.userDisplayName}}</p>
+						</div>
+						<p>{{rep.message}}</p>
+						<div class="notation">
+							<div class="gauche">
+								<svg #likes width="13" height="9" viewBox="0 0 13 9" fill="none"
+									xmlns="http://www.w3.org/2000/svg" (click)="like(rep)">
+									<path fill-rule="evenodd" clip-rule="evenodd" class="like"
+										d="M2.48693 8.22231L5.5195 5.62194C6.08335 5.13836 6.91607 5.13836 7.48019 5.62194L10.5133 8.22259C11.1005 8.72589 11.9763 8.69228 12.5232 8.14565L12.5665 8.10232C13.1134 7.55541 13.147 6.67936 12.6434 6.09218L9.2023 2.07885L7.56519 0.441462C6.97717 -0.147108 6.02335 -0.147108 5.43506 0.441184L3.79739 2.07885L0.356522 6.09218C-0.147054 6.67936 -0.113446 7.55541 0.433738 8.10204L0.477069 8.14565C1.02397 8.69228 1.89975 8.72561 2.48693 8.22231Z"
+										fill="#9B9B9B" />
+								</svg>
+								<p>{{rep.like.length}}</p>
+							</div>
+							<div class="centre">
+								<svg width="2" height="30" viewBox="0 0 2 30" fill="none"
+									xmlns="http://www.w3.org/2000/svg">
+									<rect width="2" height="30" rx="1" fill="#D1D1D1" />
+								</svg>
+							</div>
+							<div class="droite">
+								<svg #dislikes width="13" height="9" viewBox="0 0 13 9" fill="none"
+									xmlns="http://www.w3.org/2000/svg" (click)="dislike(rep)">
+									<path fill-rule="evenodd" clip-rule="evenodd" class="dislike"
+										d="M10.5131 0.777688L7.4805 3.37806C6.91665 3.86164 6.08393 3.86164 5.51981 3.37806L2.48668 0.777411C1.8995 0.274112 1.02373 0.30772 0.476821 0.854349L0.433491 0.897679C-0.113416 1.44459 -0.147024 2.32064 0.356552 2.90782L3.7977 6.92115L5.43481 8.55854C6.02283 9.14711 6.97665 9.14711 7.56494 8.55882L9.20261 6.92115L12.6435 2.90782C13.1471 2.32064 13.1134 1.44459 12.5663 0.897958L12.5229 0.854349C11.976 0.30772 11.1003 0.274389 10.5131 0.777688Z"
+										fill="#9B9B9B" />
+								</svg>
+								<p>{{rep.dislike.length}}</p>
+							</div>
+						</div>
+					</div>
+				</ng-container>
+			</div>
+		</ng-container>
+	</div>
+
 </ion-content>
+<ion-footer>
+	<app-input-form (message)="sendMsg($event)"></app-input-form>
+</ion-footer>

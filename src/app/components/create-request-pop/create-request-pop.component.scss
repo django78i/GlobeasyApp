@@ -1,0 +1,41 @@
+* {
+    margin: 0;
+}
+
+.iconProfil {
+    height: 60px;
+    width: 60px;
+    border-radius: 50%;
+    border: 2px solid white;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    z-index: 10;
+    box-shadow: 0px 5px 10px 5px rgba(3, 3, 3, 0.08);
+    background-image: url("https://img.icons8.com/fluent/144/000000/test-account.png");
+    background-position: center;
+    background-size: cover;
+}
+
+.entryText {
+    --padding-start: 70px;
+}
+
+ion-header {
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 5px;
+}
+
+.buttonSend {
+    --background: linear-gradient(180deg, #3ee38a 0%, #00d3a1 100%);
+}
+
+.chipZone {
+    padding: 3px 22px;
+    border-width: 3px;
+    --ion-color-base-rgb: #dadada !important;
+    border-color: var(--ion-color-base-rgb);
+}
+

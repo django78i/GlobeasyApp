@@ -1,3 +1,6 @@
+* {
+    margin: 0;
+}
 .cercle {
     height: 45px;
     width: 45px;
@@ -9,14 +12,40 @@
     border: 2px solid rgba(0, 0, 0, 0.0655571);
 }
 
-.detailReq{
+.detailReq,
+.reponsesRequetes {
     padding: 20px;
-    border-bottom: 2px solid #F1F1F1;
 }
 
-.profilInfo{
+.detailReq {
+    border-bottom: 2px solid #f1f1f1;
+}
+
+.profilInfo {
     color: black;
     display: flex;
     align-items: center;
+    gap: 10px;
+}
+
+.reponsesRequetes {
+    margin-top: 10px;
+}
+
+.notation {
+    display: flex;
+    justify-content: space-between;
+    width: 131px;
+}
+
+.gauche,
+.droite {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.meilleurRep{
+    display: flex;
     gap: 10px;
 }

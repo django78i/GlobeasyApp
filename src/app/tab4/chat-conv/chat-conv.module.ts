@@ -17,6 +17,8 @@ import { PhotoModule } from 'src/app/modules/photo.module';
     ChatConvPageRoutingModule,
     PhotoModule
   ],
-  declarations: [ChatConvPage]
+  declarations: [
+    ChatConvPage,
+  ]
 })
 export class ChatConvPageModule { }

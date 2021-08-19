@@ -1,0 +1,7 @@
+  <ion-searchbar  [(ngModel)]="place" (ionChange)="search()" (ionClear)="clear()"
+    (ionCancel)="clear()" placeholder="Rechercher" inputmode="search"></ion-searchbar>
+  <!-- <ion-list *ngIf="placeSub|async as place">
+    <ion-item *ngFor="let p of place">
+      <ion-label>{{p.nom}}</ion-label>
+    </ion-item>
+  </ion-list> -->

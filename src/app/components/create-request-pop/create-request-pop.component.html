@@ -1,0 +1,44 @@
+<ion-header>
+	<ion-button (click)="dismiss()">Annuler</ion-button>
+		<ion-button shape="round" class="buttonSend" (click)="sendReq()">Envoyer</ion-button>
+</ion-header>
+<ion-content>
+	<div class="iconProfil">
+		<ion-img src="../../assets/images/profil.svg" style="position: relative;top: 24px;left: 17px;"></ion-img>
+	</div>
+	<ion-textarea style="width: 100%;" rows="6" class="entryText" placeholder="Posez votre question à la communauté..."
+		[(ngModel)]="contenu">
+	</ion-textarea>
+</ion-content>
+<ion-footer>
+	<ion-toolbar>
+		<div style="position: relative;">
+			<div (click)="previous()" style="position: absolute;left: 0;background-color: white; z-index: 10;">
+				<ion-icon name="caret-back-outline"></ion-icon>
+			</div>
+			<ion-slides pager="false" [options]="slideOpts" #slide>
+				<ion-slide *ngFor="let p of sujet; let i = index" (click)="choose(i)">
+					<ion-chip outline="true">
+						<ion-label color="dark" style="font-weight: 900;">{{p}}</ion-label>
+					</ion-chip>
+				</ion-slide>
+			</ion-slides>
+			<div (click)="next()" style="position: absolute;right: 0;background-color: white;top: 0;z-index: 10;">
+				<ion-icon name="caret-forward-outline"></ion-icon>
+			</div>
+		</div>
+	</ion-toolbar>
+	<ion-toolbar style="padding: 0 10px;">
+		<ion-img src="../../../assets/icon/localization.svg" alt="" slot="start"></ion-img>
+		<ion-select placeholder="Choisissez un pays" slot="start" [(ngModel)]="pays">
+			<ion-select-option [value]="f.nom" *ngFor="let f of paySelect">
+				{{f.nom}}
+			</ion-select-option>
+		</ion-select>
+		<svg width="29" height="24" viewBox="0 0 29 24" fill="none" xmlns="http://www.w3.org/2000/svg" slot="end">
+			<path
+				d="M19.8851 13.6464C19.8851 16.5899 17.5493 18.9733 14.6646 18.9733C11.78 18.9733 9.44421 16.5899 9.44421 13.6464C9.44421 10.703 11.78 8.31958 14.6646 8.31958C17.5493 8.31958 19.8851 10.703 19.8851 13.6464ZM29 7.01587V21.6614C29 22.9517 27.9726 24 26.7081 24H2.2919C1.0274 24 0 22.9517 0 21.6614V7.01587C0 5.72559 1.0274 4.67724 2.2919 4.67724H6.13369C7.39818 4.67724 8.42559 3.6289 8.42559 2.33862C8.42559 1.04835 9.45299 0 10.7219 0H18.6074C19.8719 0 20.8993 1.04835 20.8993 2.33862C20.8993 3.6289 21.9267 4.67724 23.1912 4.67724H26.7037C27.9726 4.67724 29 5.72559 29 7.01587ZM6.26101 6.68434H2.0592V8.87064H6.26101V6.68434ZM22.0497 13.6464C22.0497 9.48441 18.7435 6.11088 14.6646 6.11088C10.5858 6.11088 7.27964 9.48441 7.27964 13.6464C7.27964 17.8085 10.5858 21.182 14.6646 21.182C18.7435 21.1775 22.0497 17.804 22.0497 13.6464ZM24.5084 19.7125C24.5084 19.0853 24.0123 18.5791 23.3976 18.5791C22.7829 18.5791 22.2868 19.0853 22.2868 19.7125C22.2868 20.3397 22.7829 20.846 23.3976 20.846C24.0123 20.846 24.5084 20.3397 24.5084 19.7125Z"
+				fill="#4A4A4A" />
+		</svg>
+	</ion-toolbar>
+</ion-footer>

@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { ChatListPageRoutingModule } from './chat-list-routing.module';
 
 import { ChatListPage } from './chat-list.page';
+import { TimeTransPipe } from 'src/app/pipe/time-trans.pipe';
 
 @NgModule({
   imports: [
@@ -15,6 +16,9 @@ import { ChatListPage } from './chat-list.page';
     IonicModule,
     ChatListPageRoutingModule
   ],
-  declarations: [ChatListPage]
+  declarations: [
+    ChatListPage,
+    TimeTransPipe
+  ]
 })
-export class ChatListPageModule {}
+export class ChatListPageModule { }

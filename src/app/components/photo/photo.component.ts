@@ -1,5 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
+import { Downloader, DownloadRequest } from '@ionic-native/downloader/ngx';
 
 @Component({
   selector: 'app-photo',
@@ -10,7 +11,10 @@ export class PhotoComponent implements OnInit {
 
   @Input() place: any;
 
-  constructor(public modalController: ModalController) { }
+  constructor(
+    public modalController: ModalController,
+    // private downloader: Downloader
+  ) { }
 
   ngOnInit() { }
 
@@ -22,5 +26,25 @@ export class PhotoComponent implements OnInit {
       'dismissed': true
     });
   }
+
+  // download() {
+  //   var request: DownloadRequest = {
+  //     uri: this.place,
+  //     title: 'MyDownload',
+  //     description: '',
+  //     mimeType: '',
+  //     visibleInDownloadsUi: true,
+  //     // notificationVisibility: NotificationVisibility.VisibleNotifyCompleted,
+  //     destinationInExternalFilesDir: {
+  //       dirType: 'Downloads',
+  //       subPath: 'MyFile.apk'
+  //     }
+  //   };
+
+
+  //   this.downloader.download(request)
+  //     .then((location: string) => console.log('File downloaded at:' + location))
+  //     .catch((error: any) => console.error(error));
+  // }
 
 }

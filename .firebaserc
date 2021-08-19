@@ -1,0 +1,14 @@
+{
+  "projects": {
+    "default": "globeasyv2"
+  },
+  "targets": {
+    "globeasyv2": {
+      "hosting": {
+        "frontapp": [
+          "frontappglobeasy"
+        ]
+      }
+    }
+  }
+}

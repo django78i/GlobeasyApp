@@ -14,6 +14,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatSelectCountryModule } from '@angular-material-extensions/select-country';
 import {MatChipsModule} from '@angular/material/chips';
 import { AccordeonModule } from '../modules/accordeon/accordeon.module';
+import { PhotoModule } from '../modules/photo.module';
 
 @NgModule({
   imports: [
@@ -27,7 +28,8 @@ import { AccordeonModule } from '../modules/accordeon/accordeon.module';
     MatFormFieldModule,
     MatStepperModule,
     MatInputModule,
-    AccordeonModule
+    AccordeonModule,
+    PhotoModule
   ],
   declarations: [PreferencesPage]
 })

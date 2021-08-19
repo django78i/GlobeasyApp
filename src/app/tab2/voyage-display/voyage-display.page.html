@@ -1,28 +1,37 @@
 <ion-content>
-	<div style="padding: 30px 0px 0px 0px;">
-		<h2 class="titreSlide">Gastronomie</h2>
-		<app-slider-voyage *ngIf="places|async as gast; else template" [places]="gastronomieTab"
-			(navigtionData)="navigate($event)"></app-slider-voyage>
+	<app-search-bar [places]="palace" (placeEvent)="showPlace($event)"></app-search-bar>
+
+	<div *ngIf="selectPlace|async as sel" style=" padding: 30px 0px 0px 0px;">
+		<h2 class="titreSlide">Résultats</h2>
+		<app-slider-voyage [places]="sel" (navigtionData)="openDescription($event)"></app-slider-voyage>
+	</div>
+	<div style="padding: 30px 0px 0px 0px;" *ngIf="!(selectPlace|async)?.length">
+		<h2 class=" titreSlide">Gastronomie</h2>
+		<app-slider-voyage *ngIf="palace ; else template" [places]="gastronomieTab"
+			(navigtionData)="openDescription($event)">
+		</app-slider-voyage>
 		<h2 class="titreSlide">Culture</h2>
-		<app-slider-voyage *ngIf="places|async as gast; else template" [places]="cultureTab"
-			(navigtionData)="navigate($event)"></app-slider-voyage>
+		<app-slider-voyage *ngIf="palace; else template" [places]="cultureTab"
+			(navigtionData)="openDescription($event)">
+		</app-slider-voyage>
 		<h2 class="titreSlide">Shopping</h2>
-		<app-slider-voyage *ngIf="places|async as gast; else template" [places]="shoppingTab"
-			(navigtionData)="navigate($event)"></app-slider-voyage>
+		<app-slider-voyage *ngIf="palace; else template" [places]="shoppingTab"
+			(navigtionData)="openDescription($event)">
+		</app-slider-voyage>
 		<h2 class="titreSlide">Activité</h2>
-		<app-slider-voyage *ngIf="places|async as gast; else template" [places]="activiteTab"
-			(navigtionData)="navigate($event)"></app-slider-voyage>
+		<app-slider-voyage *ngIf="palace; else template" [places]="activiteTab"
+			(navigtionData)="openDescription($event)">
+		</app-slider-voyage>
 	</div>
 </ion-content>
 <ng-template #template>
 	<ion-slides pager="false" [options]="slideOpts">
 		<ion-slide *ngFor="let f of tablTemplate">
 			<div class="background">
+				<ion-skeleton-text animated></ion-skeleton-text>
 			</div>
 			<div class="bandeau">
-				<div class="stars">
-					<ngx-star-rating [(ngModel)]="rating2" [id]="'rating2'"></ngx-star-rating>
-				</div>
+				<ion-skeleton-text animated style="width: 30%;height: 50px;"></ion-skeleton-text>
 			</div>
 		</ion-slide>
 	</ion-slides>

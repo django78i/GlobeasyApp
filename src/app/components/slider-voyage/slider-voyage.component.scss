@@ -46,3 +46,13 @@ ngb-rating {
     display: flex;
     padding: 3px;
 }
+
+
+meter{
+    width: 5em;
+    height: 1em;
+    background: url('data:image/svg+xml,<svg xmls="http://www.w3.org/2000/svg" viewbox="0 100 100"><text font-size="100" y=".8em" opaciity=".2">⭐</text></svg>') 0/ auto 100%;
+}
+
+  
+  
